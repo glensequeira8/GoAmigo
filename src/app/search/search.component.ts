@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserTrips } from './UserTrips';
+import { UserTrips } from './../models/UserTrips';
 import { Http,Response } from "@angular/http";
 import { ReadJSON } from "../services/readJSON";
 

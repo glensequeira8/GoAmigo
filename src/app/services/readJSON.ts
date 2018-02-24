@@ -1,7 +1,7 @@
 import {Injectable } from '@angular/core';
 import { Http } from "@angular/http";
 import 'rxjs/add/operator/map';
-import { UserTrips } from '../search/UserTrips';
+import { UserTrips } from './../models/UserTrips';
 
 @Injectable()
 
