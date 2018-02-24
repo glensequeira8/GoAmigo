@@ -9,12 +9,6 @@ export class ReadJSON{
 
     }
     getJSON(fileName){
-        return this.http.get(fileName).map(data=>data.json());
-        //"./../../assets/search.json"
-        // this.http.get(fileName).map(data=>data.json() as Array<UserTrips>).subscribe(data=>{
-        //     this.trips=data;
-        //   console.log(data);
-        // });
-        
+        return this.http.get(fileName).map(data=>data.json());        
     }
 }
