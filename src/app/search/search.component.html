@@ -1,5 +1,6 @@
 <div class="form-group">
 
+<<<<<<< HEAD
   <br>
   <label>Destination:</label>
   <input type="text" id="dest" [(ngModel)]="dest">
@@ -26,6 +27,32 @@
          </tr>
         </tbody>
       </table>
+=======
+    <br>
+    <label>Destination:</label>
+    <input type="text" id="dest" [(ngModel)]="dest">
+    <button class="btn btn-success" type="submit">Submit</button>
+</div>
+<div class='row'>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class='panel-heading'>Traveller List</div>
+        <div class='panel-body'>
+            <table class="table table-bordered table-condensed ">
+                <thead>
+                <th>Name</th>
+                <th>Source</th>
+                <th>Date</th>
+                </thead>
+                <tbody>
+                <tr *ngFor="let trip of trips">
+                    <td>{{trip.fname}} {{trip.lname}}</td>
+                    <td>{{trip.source}}</td>
+                    <td>{{trip.date}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+>>>>>>> 04fed9300b3f1fe9e9fdf287b6fd5b9b584749f6
     </div>
-  </div>
 </div>
