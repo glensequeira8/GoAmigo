@@ -7,7 +7,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { fakeBackendProvider } from './_helpers/index';
 
 import { AppComponent }  from './app.component';
-import { BreadcrumbsComponent} from "./breadcrumbs/breadcrumbs.component";
 import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
@@ -17,18 +16,21 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent} from "./register/index";
-import { SearchComponent } from './search/search.component';
 import { MyTripComponent } from './my-trip/my-trip.component';
 import { PlanComponent } from './plan/plan.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
+import { ReadJSON } from "./_services/readJSON";
+import { SearchComponent } from './search/search.component';
+import { HttpModule} from "@angular/http";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        routing
+        routing,
+        HttpModule
     ],
     declarations: [
         AppComponent,
@@ -36,17 +38,18 @@ import { AboutComponent } from './about/about.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        SearchComponent,
         MyTripComponent,
         PlanComponent,
         ProfileComponent,
         AboutComponent,
-        BreadcrumbsComponent
+        SearchComponent,
+
     ],
     providers: [
         AuthGuard,
         AlertService,
         AuthenticationService,
+        ReadJSON,
         UserService,
         {
             provide: HTTP_INTERCEPTORS,

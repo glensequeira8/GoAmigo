@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿  import { Component } from '@angular/core';
 
 
 import '../assets/app.css';
@@ -9,4 +9,6 @@ import '../assets/app.css';
     templateUrl: 'app.component.html'
 })
 
-export class AppComponent { }
+export class AppComponent {
+
+}
