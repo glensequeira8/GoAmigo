@@ -3,7 +3,7 @@
   <br>
   <label>Destination:</label>
   <input type="text" id="dest" [(ngModel)]="dest">
-  <button class="btn btn-success" type="submit">Submit</button>
+  <button class="btn btn-success" type="submit" (click)=onSubmit()>Submit</button>
 </div>
 <div class='row'>
   <div class="panel panel-default">
@@ -14,13 +14,15 @@
         <thead>
          <th>Name</th>
          <th>Source</th>
-         <th>Date</th>
+         <th>Start Date</th>
+         <th>End Date</th>
         </thead>
         <tbody>
-         <tr *ngFor="let trip of trips">
+         <tr *ngFor="let trip of filteredItems">
           <td>{{trip.fname}} {{trip.lname}}</td>
           <td>{{trip.source}}</td>
-          <td>{{trip.date}}</td>
+          <td>{{trip.todate}}</td>
+          <td>{{trip.fromdate}}</td>
          </tr>
         </tbody>
       </table>

@@ -19,21 +19,26 @@ export class SearchComponent implements OnInit {
   
 	pagesIndex : Array<number>;
 	pageStart : number = 1;
-  inputName : string = '';
-  trips:UserTrips[];
+  dest : string = '';
+  trips:any;
   file:string;
   http:Http;
+ 
   constructor(private readJSON:ReadJSON) {
+    //this.filteredItems = this.trips;
+    //this.init();
     
   }
 
   ngOnInit() {
-   this.readJSON.getJSON("./../../assets/search.json").subscribe(data=>{
+    let i=0;
+   this.readJSON.getJSON("./../../assets/search.json").then(data => {
+     //this.getTrips(data);
 
-          this.trips=data;
-           console.log(data);
-         });
-         console.log(this.trips);
+this.trips=data;     
+   });
+
+       //  console.log("my trips:"+this.trips);
   }
 
 
@@ -46,6 +51,7 @@ this.pageStart = this.currentIndex;
 }
 this.refreshItems();
 }
+
 nextPage(){
 if(this.currentIndex < this.pageNumber){
   this.currentIndex ++;
@@ -56,6 +62,7 @@ this.pageStart = this.currentIndex - this.pages + 1;
 
 this.refreshItems();
 }
+
 setPage(index : number){
  this.currentIndex = index;
  this.refreshItems();
@@ -63,7 +70,9 @@ setPage(index : number){
 
 
 refreshItems(){
-  this.filteredItems = [];
+  this.filteredItems = this.filteredItems.slice((this.currentIndex - 1)*this.pageSize, (this.currentIndex) * this.pageSize);
+					this.pagesIndex =  this.fillArray();
+	
   
 }
 
@@ -75,4 +84,53 @@ fillArray(): any{
   return obj;
 }
     
+
+init(){
+  this.currentIndex = 1;
+  this.pageStart = 1;
+  this.pages = 4;
+if(null!=this.filteredItems){
+  this.pageNumber = parseInt(""+ (this.filteredItems.length / this.pageSize));
+  if(this.filteredItems.length % this.pageSize != 0){
+    this.pageNumber ++;
+  }
+}
+
+  if(this.pageNumber  < this.pages){
+      this.pages =  this.pageNumber;
+  }
+ 
+  this.refreshItems();
+  console.log("this.pageNumber :  "+this.pageNumber);
+
+}
+
+
+ onSubmit(){
+console.log(this.trips);
+
+  this.filteredItems = [];
+  if(this.dest != ""){
+    this.trips.forEach(element=>{
+      console.log(element.destination.toUpperCase());
+      if(!element.lone && element.destination.toUpperCase().indexOf(this.dest.toUpperCase())>=0){
+          this.filteredItems.push(element);
+          
+      }
+    });
+  }else{
+    let i=0;
+    let count=0;
+    while(i<this.trips.length){
+      if(!this.trips[i].lone){
+        this.filteredItems[count++]=this.trips[i];
+      }
+      i++;
+    }
+    
+  }
+  console.log(this.filteredItems);
+ // console.log(this.filteredItems);
+		this.init();
+ }
 }
