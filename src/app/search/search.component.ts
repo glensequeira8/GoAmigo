@@ -114,7 +114,7 @@ this.tempArr=[];
   this.filteredItems = [];
   if(this.dest != ""){
     this.trips.forEach(element=>{
-      console.log(this.currentUser.city);
+     // console.log(this.currentUser.city);
       if(element.id!=this.currentUser.id && !element.lone && element.destination.toUpperCase().indexOf(this.dest.toUpperCase())>=0){
           // if(this.currentUser.city.indexOf(element.source)>=0){
           //     this.filteredItems.push(element);
