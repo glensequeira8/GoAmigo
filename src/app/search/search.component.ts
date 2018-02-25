@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserTrips } from './../models/UserTrips';
 import { Http,Response } from "@angular/http";
 import { ReadJSON } from "../services/readJSON";
+import { User } from '../_models/index';
+import { UserService } from '../_services/index';
+
 
 @Component({
   providers:[ReadJSON],
@@ -12,10 +15,10 @@ import { ReadJSON } from "../services/readJSON";
 export class SearchComponent implements OnInit {
   filteredItems : UserTrips[];
 	pages : number = 4;
-  pageSize : number = 5;
+  pageSize : number = 2;
 	pageNumber : number = 0;
 	currentIndex : number = 1;
-
+ tempArr : UserTrips[];
   
 	pagesIndex : Array<number>;
 	pageStart : number = 1;
@@ -23,15 +26,14 @@ export class SearchComponent implements OnInit {
   trips:any;
   file:string;
   http:Http;
- 
+  currentUser: User;
+
   constructor(private readJSON:ReadJSON) {
-    //this.filteredItems = this.trips;
-    //this.init();
-    
+       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    let i=0;
+    
    this.readJSON.getJSON("./../../assets/search.json").then(data => {
      //this.getTrips(data);
 
@@ -101,35 +103,41 @@ if(null!=this.filteredItems){
   }
  
   this.refreshItems();
-  console.log("this.pageNumber :  "+this.pageNumber);
+  //console.log("this.pageNumber :  "+this.pageNumber);
 
 }
 
 
  onSubmit(){
-console.log(this.trips);
-
+//console.log(this.currentUser);
+this.tempArr=[];  
   this.filteredItems = [];
   if(this.dest != ""){
     this.trips.forEach(element=>{
-      console.log(element.destination.toUpperCase());
-      if(!element.lone && element.destination.toUpperCase().indexOf(this.dest.toUpperCase())>=0){
+      console.log(this.currentUser.city);
+      if(element.id!=this.currentUser.id && !element.lone && element.destination.toUpperCase().indexOf(this.dest.toUpperCase())>=0){
+          // if(this.currentUser.city.indexOf(element.source)>=0){
+          //     this.filteredItems.push(element);
+          // }else{
+          // this.tempArr.push(element);
+          // }        
           this.filteredItems.push(element);
-          
       }
     });
+    //this.filteredItems.concat(this.tempArr);
+    console.log("arr:"+this.filteredItems);
   }else{
     let i=0;
     let count=0;
     while(i<this.trips.length){
-      if(!this.trips[i].lone){
+      if(this.trips.id!=this.currentUser.id && !this.trips[i].lone){
         this.filteredItems[count++]=this.trips[i];
       }
       i++;
     }
     
   }
-  console.log(this.filteredItems);
+  //console.log(this.filteredItems);
  // console.log(this.filteredItems);
 		this.init();
  }
