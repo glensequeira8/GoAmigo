@@ -20,7 +20,7 @@ import { MyTripComponent } from './my-trip/my-trip.component';
 import { PlanComponent } from './plan/plan.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
-import { ReadJSON } from "./_services/readJSON";
+import { ReadJSON } from "./services/readJSON";
 import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
 
