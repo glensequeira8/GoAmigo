@@ -5,16 +5,17 @@
     <div class='panel-body'>
       <table class="table table-bordered table-condensed ">
         <thead>
+         <th>Trip Source</th>
          <th>Trip Destination</th>
          <th>from</th>
          <th>to</th>
-         <th>Edit</th>
         </thead>
         <tbody>
          <tr *ngFor="let trip of myTrips">
-          <td contenteditable="true">{{trip.source}}</td>
+          <td>{{trip.source}}</td>
           <td>{{trip.destination}}</td>
           <td>{{trip.fromdate}}</td>
+          <td>{{trip.todate}}</td>
           <td><button class="btn btn-success" type="submit">Update</button></td>
           <td><button class="btn btn-success" (click) = "deleteTrip(trip)">Delete</button></td>
          </tr>

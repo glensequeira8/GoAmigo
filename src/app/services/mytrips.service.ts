@@ -41,4 +41,6 @@ export class MyTripsService {
   addTrip(myTrip: TripDetails): Observable<TripDetails>{
     return this.http.post<TripDetails>(this.tripsUrl,myTrip,httpOptions);
   }
+
+
 }

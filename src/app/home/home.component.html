@@ -1,31 +1,5 @@
-﻿<div class="col-md-12">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>Plan your trip</p>
-    <div class="navbar navbar-expand-lg ">
-      <div class="container">
-        <a href="../" class="navbar-brand">Go-Amigo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar-Responsive">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="search">Search People</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="plan">Plan Trip</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="mytrips">My Trips</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="Container">
-      <router-outlet></router-outlet>
-    </div>
+<div class="row">
+ <H1 class="text-center" style="font-family: cursive;color: darkcyan">Welcome {{currentUser.firstName}}!</H1>
 
-
-  <p><a [routerLink]="['/login']">Logout</a></p>
 </div>
+
