@@ -1,3 +1,64 @@
- <div class="Container">
-            <router-outlet></router-outlet>
- </div>
+<div>
+
+	<div class="container">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="form-area">
+					<h3 style="margin-bottom: 25px; text-align: left;">Plan my Trip</h3>
+
+				<form #myForm="ngForm">
+					<br style="clear: both">
+					<h3 style="margin-bottom: 25px; text-align: center;"></h3>
+					<div id="datepicker" class="calendar"></div>
+
+					<div class="form-group">
+
+						<label>Source:</label>
+						<select name="source" id="source" class="form-control" [(ngModel)]="model.source" ng-required="true">
+							<option name="source" value="">--select state--</option>
+							<option *ngFor="let p of source">{{p}}</option>
+						</select>
+						
+						<div>
+							<label> Destination:</label>
+							<select name="destination" id="destination" class="form-control" [(ngModel)]="model.destination" ng-required="true">
+							    <option name="destination" value="">--select state--</option>
+								<option *ngFor="let q of destin">{{q}}</option>
+							</select>
+								
+						</div>
+
+					</div>
+
+					<div class="form-group registration-date">
+
+						<div class="input-group registration-date-time">
+							<span class="input-group-addon" id="basic-addon1"></span>
+							
+							From:
+							<input class="form-control" id="fromdate" type="date" name="fromdate" [(ngModel)]="model.fromdate" ng-required="true">
+							
+							To:
+							<input class="form-control" id="todate" type="date" name="todate" [(ngModel)]="model.todate" ng-required="true">
+							
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="checkbox-inline">
+							<input type="checkbox" name="lone" id="inlineCheckbox1" value="lone" [(ngModel)]="model.lone" ng-required="true"> Lone Traveler
+						</label>
+						<label class="checkbox-inline">
+							<input type="checkbox" name="group" id="inlineCheckbox2" value="group" [(ngModel)]="model.group" ng-required="true"> Group Travel
+						</label>
+
+					</div>
+					<button type="submit" id="submit" name="submit" class="btn btn-primary" (click)="addTrip(model)" [disabled]="!myForm.form.valid">Save</button>
+					<button type="button" id="reset" name="reset" class="btn btn-primary" (click)="reset()">Reset</button>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</div>

@@ -15,7 +15,7 @@ import { UserService } from '../_services/index';
 export class SearchComponent implements OnInit {
   filteredItems : UserTrips[];
 	pages : number = 4;
-  pageSize : number = 2;
+  pageSize : number = 50;
 	pageNumber : number = 0;
 	currentIndex : number = 1;
  tempArr : UserTrips[];

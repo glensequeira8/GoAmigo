@@ -1,8 +1,7 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,Validators } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
 
@@ -23,6 +22,7 @@ import { AboutComponent } from './about/about.component';
 import { ReadJSON } from "./services/readJSON";
 import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
+import { MyTripsService } from "./services/mytrips.service";
 
 
 @NgModule({
@@ -31,8 +31,8 @@ import { HttpModule} from "@angular/http";
         FormsModule,
         HttpClientModule,
         routing,
-        HttpModule
-    ],
+        HttpModule,
+      ],
     declarations: [
         AppComponent,
         AlertComponent,
@@ -52,6 +52,7 @@ import { HttpModule} from "@angular/http";
         AuthenticationService,
         ReadJSON,
         UserService,
+        MyTripsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
