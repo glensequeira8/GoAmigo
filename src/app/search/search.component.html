@@ -1,29 +1,32 @@
 <div class="form-group">
+    <h3 style="margin-bottom: 25px; text-align: left;">Search people!</h3>
 
-    <br>
-    <label>Destination:</label>
-    <input type="text" id="dest" [(ngModel)]="dest">
-    <button class="btn btn-success" type="submit">Submit</button>
+  <label>Destination:</label>
+  <input type="text" id="dest" [(ngModel)]="dest">
+  <button class="btn btn-primary" type="submit" (click)=onSubmit()>Submit</button>
 </div>
 <div class='row'>
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class='panel-heading'>Traveller List</div>
-        <div class='panel-body'>
-            <table class="table table-bordered table-condensed ">
-                <thead>
-                <th>Name</th>
-                <th>Source</th>
-                <th>Date</th>
-                </thead>
-                <tbody>
-                <tr *ngFor="let trip of trips">
-                    <td>{{trip.fname}} {{trip.lname}}</td>
-                    <td>{{trip.source}}</td>
-                    <td>{{trip.date}}</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+      <div class="panel panel-default">
+   <!-- Default panel contents -->
+           <div class='panel-heading'>Traveller List</div>
+                  <div class='panel-body'>
+                    <table class="table table-bordered table-condensed ">
+                      <thead>
+                       <th>Name</th>
+                       <th>Source</th>
+                       <th>Start Date</th>
+                       <th>End Date</th>
+                      </thead>
+                      <tbody>
+                       <tr *ngFor="let trip of filteredItems">
+                        <td>{{trip.fname}} {{trip.lname}}</td>
+                        <td>{{trip.source}}</td>
+                        <td>{{trip.todate}}</td>
+                        <td>{{trip.fromdate}}</td>
+                       </tr>
+                      </tbody>
+                    </table>
+             </div>
+      </div>
 </div>
+

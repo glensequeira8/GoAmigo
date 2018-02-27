@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Trip } from './trip';
 import { User } from '../_models/index';
-import { UserService } from '../_services/index';
-import { RouterModule, Routes } from '@angular/router';
+import { AlertService,UserService } from '../_services/index';
+import { RouterModule, Routes,Router } from '@angular/router';
+import { TripDetails } from './../models/tripDetails';
+import { MyTripsService } from './../services/mytrips.service';
 
 
 
 @Component({
   selector: 'app-plan',
   templateUrl: './plan.component.html',
+  providers: [MyTripsService, AlertService],
   styleUrls: ['./plan.component.css']
 })
 export class PlanComponent implements OnInit {
@@ -17,34 +19,39 @@ export class PlanComponent implements OnInit {
   source=['USA','Australia','Africa','Japan','India','China'];
   destin=['Australia','Africa','Japan','India','China'] ;
   
-  model: Trip ;
+  model: TripDetails ;
   submitted=false; 
-   
+  trips: TripDetails[];
+    
   
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,private myTripsService: MyTripsService,private router: Router,private alertService: AlertService) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      
+     
+      
   }
 
   ngOnInit() {
-    this.model = new Trip(this.currentUser.id,'','','','',true,false);
+    
+    this.model = new TripDetails("","","","","","",true,false);
   }
   
   reset()
   {
-    this.model=new Trip(this.currentUser.id,'','','','',false,false);
+    this.model = new TripDetails("","","","","","",false,false);
   }
 
-  onSubmit()
-  {
-    this.submitted=true;
-    console.log(JSON.stringify(this.model));
-  
-  }
 
-  save()
+  addTrip(trip:TripDetails): void
   {
+    trip.userid = String(this.currentUser.id);
+    trip.id = String("11");
+    
 
+    this.myTripsService.addTrip(this.model);
+    this.router.navigate(['/mytrips']);
+    
   }
   
   

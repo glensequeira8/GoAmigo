@@ -15,13 +15,15 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent} from "./register/index";
-import { MyTripComponent } from './my-trip/my-trip.component';
 import { PlanComponent } from './plan/plan.component';
+import { MytripsComponent } from './mytrips/mytrips.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
-import { ReadJSON } from "./_services/readJSON";
+import { ReadJSON } from "./services/readJSON";
 import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
+import { MyTripsService } from "./services/mytrips.service";
+
 
 @NgModule({
     imports: [
@@ -37,11 +39,11 @@ import { HttpModule} from "@angular/http";
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        MyTripComponent,
         PlanComponent,
         ProfileComponent,
         AboutComponent,
         SearchComponent,
+        MytripsComponent,
 
     ],
     providers: [
@@ -50,6 +52,7 @@ import { HttpModule} from "@angular/http";
         AuthenticationService,
         ReadJSON,
         UserService,
+        MyTripsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
