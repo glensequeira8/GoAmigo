@@ -23,7 +23,7 @@ import { ReadJSON } from "./services/readJSON";
 import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
 import { MyTripsService } from "./services/mytrips.service";
-import { Search1Component } from './search1/search1.component';
+
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { Search1Component } from './search1/search1.component';
         AboutComponent,
         SearchComponent,
         MytripsComponent,
-        Search1Component
+        
 
     ],
     providers: [

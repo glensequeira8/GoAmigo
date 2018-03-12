@@ -8,7 +8,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { PlanComponent } from "./plan/plan.component";
 import {SearchComponent} from "./search/search.component";
 import { MytripsComponent } from './mytrips/mytrips.component';
-import { Search1Component } from './search1/search1.component';
+
 
 
 const appRoutes: Routes = [
@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   {path: 'plan', component: PlanComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent},
   {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
-  {path: 'search1', component: Search1Component},
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path: '**', redirectTo: '', pathMatch: 'full'}
