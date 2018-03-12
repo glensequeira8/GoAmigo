@@ -1,0 +1,26 @@
+<div class="row" align="left">
+  <div class="col-md-12">
+     <a class="navbar-brand">Group Name</a>
+    <nav class="navbar navbar-expand-lg"  *ngIf='!showNav'>
+
+        
+        <ul class="nav navbar-nav" routerLinkActive="active">
+          <li class="nav-item"><a class="nav-link" routerLink="chat">Chat</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="manage budget">Manage Budget</a></li>
+
+          
+          <li class="nav-item">
+              <a class="nav-link" routerLink="group photos">Group Photos</a>
+            </li> 
+            <li class="nav-item"><a class="nav-link" routerLink="group info">Group Info</a></li>
+            <li class="nav item"><a class="nav-link" routerLink="suggestions">Suggestions</a></li>
+
+              
+        </ul>
+    </nav>
+      <div class="container">
+          <alert></alert>
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

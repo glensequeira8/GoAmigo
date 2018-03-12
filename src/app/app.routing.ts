@@ -8,6 +8,7 @@ import { ProfileComponent } from "./profile/profile.component";
 import { PlanComponent } from "./plan/plan.component";
 import {SearchComponent} from "./search/search.component";
 import { MytripsComponent } from './mytrips/mytrips.component';
+import { GroupComponent } from './group/group.component';
 
 
 
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   
   {path: 'mytrips', component: MytripsComponent, canActivate: [AuthGuard]},
   
+  {path: 'group', component: GroupComponent, canActivate: [AuthGuard]},
   {path: 'plan', component: PlanComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent},
   {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
