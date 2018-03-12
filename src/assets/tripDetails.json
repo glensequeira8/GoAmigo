@@ -1,0 +1,93 @@
+{
+
+    "trips":[
+        {
+            "id":1,
+            "source":"New York",
+            "destination":"Cape Town",
+            "fromdate":"2018-02-06",
+            "todate":"2018-02-12",
+            "lone":true,
+            "group":true
+        },
+
+        {
+            "id":1,
+            "source":"New York",
+            "destination":"Moscow",
+            "fromdate":"2018-03-06",
+            "todate":"2018-03-12",
+            "lone":true,
+            "group":false
+        },
+
+        {
+            "id":1,
+            "source":"New York",
+            "destination":"London",
+            "fromdate":"2018-04-06",
+            "todate":"2018-04-12",
+            "lone":false,
+            "group":true
+        },
+
+        {
+           "id":2,
+            "source":"Ahmedabad",
+            "destination":"London",
+            "fromdate":"2018-04-06",
+            "todate":"2018-04-12",
+            "lone":true,
+            "group":true
+        },
+
+        {
+            "id":2,
+            "source":"Ahmedabad",
+            "destination":"Moscow",
+            "fromdate":"2018-03-06",
+            "todate":"2018-03-12",
+            "lone":true,
+            "group":true
+        },
+
+        {
+            "id":2,
+            "source":"Ahmedabad",
+            "destination":"Cape Town",
+            "fromdate":"2018-02-06",
+            "todate":"2018-02-12",
+            "lone":true,
+            "group":true
+        },
+        {
+            "id":3,
+            "source":"Shandong",
+            "destination":"Cape Town",
+            "fromdate":"2018-02-06",
+            "todate":"2018-02-12",
+            "lone":true,
+            "group":true
+        },
+
+        {
+            "id":3,
+            "source":"Shandong",
+            "destination":"Moscow",
+            "fromdate":"2018-03-06",
+            "todate":"2018-03-12",
+            "lone":true,
+            "group":true
+        },
+
+        {
+            "id":3,
+            "source":"Shandong",
+            "destination":"London",
+            "fromdate":"2018-04-06",
+            "todate":"2018-04-16",
+            "lone":true,
+            "group":true
+        }
+    ]
+}

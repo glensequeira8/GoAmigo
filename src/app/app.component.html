@@ -1,22 +1,25 @@
-    <div class="navbar navbar-expand-lg ">
-      <div class="container">
-        <a href="../" class="navbar-brand">Go-Amigo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
+﻿
+<div class="row">
+    <div class="col-md-12">
+
+      <nav class="navbar navbar-expand-lg" style="background-color: aliceblue" *ngIf='!showNav'>
+
+          <a class="navbar-brand" routerLink="../">Go Amigo</a>
+          <ul class="nav navbar-nav" routerLinkActive="active">
+            
+            <li class="nav-item"><a class="nav-link" routerLink="search">Search</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="plan">Plan Trip</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="../search/">Search People</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../plantrip">Plan Trip</a>
-            </li>
-          </ul> 
+                <a class="nav-link" routerLink="mytrips">My Trips</a>
+              </li> 
+            <li class="nav-item mr-sm-2"><a class="nav-link" [routerLink]="['/login']">Logout</a></li>
+             
+          </ul>
+      </nav>
+        <div class="container">
+            <alert></alert>
+            <router-outlet></router-outlet>
         </div>
-      </div>
     </div>
-    <div class="Container">
-      <router-outlet></router-outlet>
-    </div>
+ </div>
 

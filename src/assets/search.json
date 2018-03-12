@@ -1,0 +1,65 @@
+[
+{
+  "id" : "GS794734",
+  "fname": "Glen",
+  "lname": "Sequeira",
+  "source": "Albany",
+  "destination": "California",
+  "todate": "02-05-2018",
+  "fromdate":"02-10-2018",
+  "lone":true
+
+},
+{
+  "id" : "1",
+  "fname": "Glen",
+  "lname": "S",
+  "source": "Albany",
+  "destination": "California",
+  "todate": "02-05-2018",
+  "fromdate":"02-10-2018",
+  "lone":false
+
+},
+{
+  "id" : "HP794712",
+  "fname": "Hari",
+  "lname": "Prusty",
+  "source": "Boston",
+  "destination": "New York",
+  "todate": "01-01-2018",
+  "fromdate":"02-10-2018",
+  "lone":false
+
+},
+{
+  "id" : "10",
+  "fname": "DDDD",
+  "lname": "S",
+  "source": "Abany",
+  "destination": "California",
+  "todate": "02-05-2018",
+  "fromdate":"02-10-2018",
+  "lone":false
+},
+{
+  "id" : "HS794732",
+  "fname": "Harsh",
+  "lname": "Shah",
+  "source": "Seatle",
+  "destination": "California",
+  "todate": "01-12-2018",
+  "fromdate":"02-18-2018",
+  "lone": false
+},
+{
+  "id" : "GS794734",
+  "fname": "Glen",
+  "lname": "Sequeira",
+  "source": "California",
+  "destination": "New York",
+  "todate": "05-01-2018",
+  "fromdate":"06-10-2018",
+  "lone":false
+  }
+]
