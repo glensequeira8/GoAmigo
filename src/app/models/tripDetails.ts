@@ -15,8 +15,7 @@ export class TripDetails {
     public destination: string,
     public fromdate: string,
     public todate: string,
-    public lone: boolean,
-    public group: boolean
+    public travel: string,
     ) {  }
   }
   

@@ -44,15 +44,15 @@
 					</div>
 
 					<div class="form-group">
-						<label class="checkbox-inline">
-							<input type="checkbox" name="lone" id="inlineCheckbox1" value="lone" [(ngModel)]="model.lone" ng-required="true"> Lone Traveler
-						</label>
-						<label class="checkbox-inline">
-							<input type="checkbox" name="group" id="inlineCheckbox2" value="group" [(ngModel)]="model.group" ng-required="true"> Group Travel
-						</label>
+						
+							<input type="radio" name="travel" value="lone" [(ngModel)]="model.travel"/> Lone Traveler
+						
+
+							<input type="radio" name="travel" value="group" [(ngModel)]="model.travel"/> Group Travel
+						
 
 					</div>
-					<button type="submit" id="submit" name="submit" class="btn btn-primary" (click)="addTrip(model)" [disabled]="!myForm.form.valid">Save</button>
+					<button type="submit" id="submit" name="submit" class="btn btn-primary" (click)="onFormSubmit(myForm,model)" [disabled]="!myForm.form.valid">Save</button>
 					<button type="button" id="reset" name="reset" class="btn btn-primary" (click)="reset()">Reset</button>
 
 
