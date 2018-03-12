@@ -4,6 +4,7 @@ import { AlertService,UserService } from '../_services/index';
 import { RouterModule, Routes,Router } from '@angular/router';
 import { TripDetails } from './../models/tripDetails';
 import { MyTripsService } from './../services/mytrips.service';
+import { min } from 'rxjs/operators';
 
 
 
@@ -46,7 +47,7 @@ export class PlanComponent implements OnInit {
   addTrip(trip:TripDetails): void
   {
     trip.userid = String(this.currentUser.id);
-    trip.id = String("11");
+    trip.id = String(Math.floor(Math.random()*(100-31+1)+31));
     
 
     this.myTripsService.addTrip(this.model);
