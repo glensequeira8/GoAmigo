@@ -43,6 +43,18 @@ export class MyTripsService {
       return this.http.delete(url,httpOptions);
   }
 
+  searchTrip(term: string): Observable<TripDetails[]> {
+    term = term.trim();
+
+    // Add safe, URL encoded search parameter if there is a search term
+    const options = term ?
+     { params: new HttpParams().set('destination', term) } : {};
+
+    return this.http.get<TripDetails[]>(this.tripsUrl, options);
+      
+  }
+
+
   addTrip(myTrip: TripDetails){
     
     const options = new RequestOptions();

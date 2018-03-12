@@ -10,17 +10,19 @@ import {SearchComponent} from "./search/search.component";
 import { MytripsComponent } from './mytrips/mytrips.component';
 
 
+
 const appRoutes: Routes = [
 
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-
+  
   {path: 'mytrips', component: MytripsComponent, canActivate: [AuthGuard]},
   
   {path: 'plan', component: PlanComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent},
   {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path: '**', redirectTo: '', pathMatch: 'full'}

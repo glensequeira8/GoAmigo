@@ -25,6 +25,7 @@ import { HttpModule} from "@angular/http";
 import { MyTripsService } from "./services/mytrips.service";
 
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -44,6 +45,7 @@ import { MyTripsService } from "./services/mytrips.service";
         AboutComponent,
         SearchComponent,
         MytripsComponent,
+        
 
     ],
     providers: [
