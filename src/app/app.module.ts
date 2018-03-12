@@ -23,6 +23,7 @@ import { ReadJSON } from "./services/readJSON";
 import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
 import { MyTripsService } from "./services/mytrips.service";
+import { GroupComponent } from './group/group.component';
 
 
 
@@ -45,6 +46,7 @@ import { MyTripsService } from "./services/mytrips.service";
         AboutComponent,
         SearchComponent,
         MytripsComponent,
+        GroupComponent,
         
 
     ],

@@ -5,7 +5,7 @@ import { RouterModule, Routes,Router } from '@angular/router';
 import { TripDetails } from './../models/tripDetails';
 import { MyTripsService } from './../services/mytrips.service';
 import { min } from 'rxjs/operators';
-
+import { GroupComponent } from '../group/group.component';
 
 
 @Component({
@@ -43,20 +43,14 @@ export class PlanComponent implements OnInit {
     this.model = new TripDetails("","","","","","",false,false);
   }
 
-
   addTrip(trip:TripDetails): void
   {
     trip.userid = String(this.currentUser.id);
     trip.id = String(Math.floor(Math.random()*(100-31+1)+31));
-    
-
+  
     this.myTripsService.addTrip(this.model);
-    this.router.navigate(['/mytrips']);
+    this.router.navigate(['/group']);
     
   }
-  
-  
-
-
-  
+ 
 }
