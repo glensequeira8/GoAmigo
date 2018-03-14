@@ -24,6 +24,11 @@ import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
 import { MyTripsService } from "./services/mytrips.service";
 import { GroupComponent } from './group/group.component';
+import { BudgetComponent } from './budget/budget.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarService } from './navbar/navbar.service';
+import * as $ from 'jquery';
+import { ModalComponent } from './_directives/modal.component';
 
 
 
@@ -47,6 +52,9 @@ import { GroupComponent } from './group/group.component';
         SearchComponent,
         MytripsComponent,
         GroupComponent,
+        BudgetComponent,
+        NavbarComponent,
+        ModalComponent
         
 
     ],
@@ -57,6 +65,7 @@ import { GroupComponent } from './group/group.component';
         ReadJSON,
         UserService,
         MyTripsService,
+        NavbarService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,

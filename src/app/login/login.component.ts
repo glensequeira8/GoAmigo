@@ -1,5 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NavbarService } from './../navbar/navbar.service';
 
 import { AlertService, AuthenticationService } from '../_services/index';
 
@@ -17,10 +18,11 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,public nav: NavbarService) { }
 
     ngOnInit() {
         // reset login status
+        this.nav.hide();
         this.authenticationService.logout();
 
         // get return url from route parameters or default to '/'

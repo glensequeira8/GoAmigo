@@ -1,9 +1,11 @@
+<app-navbar></app-navbar>
+
 <div>
 
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="form-area">
-					<h3 style="margin-top: 30px; text-align: left;">Plan my Trip</h3>
+			  <h3 style="margin-top: 30px; text-align: left;">Plan my Trip</h3>
 
 				<form #myForm="ngForm">
 					<br style="clear: both">
@@ -49,16 +51,39 @@
 						
 
 							<input type="radio" name="travel" value="group" [(ngModel)]="model.travel"/> Group Travel
-						
-
+					
 					</div>
-					<button type="submit" id="submit" name="submit" class="btn btn-primary" (click)="onFormSubmit(myForm,model)" [disabled]="!myForm.form.valid">Save</button>
-					<button type="button" id="reset" name="reset" class="btn btn-primary" (click)="reset()">Reset</button>
+					
+
+	<button type="submit" id="submit" name="submit" class="btn btn-primary" (click)="onFormSubmit(myForm,model,'custom-modal-1')" [disabled]="!myForm.form.valid">Save</button>
+	<button type="button" id="reset" name="reset" class="btn btn-primary" (click)="reset()">Reset</button>
 
 
-				</form>
-			</div>
-		</div>
+		</form>		
+	</div>
+	</div>
 	</div>
 
 </div>
+<modal id="custom-modal-1">
+	<div class="custom-modal">
+		<div class="custom-modal-body">
+			<h2>Group Options</h2>
+			<table>
+				<tr><td><button (click)="createGroup();">Create A Group</button></td>
+					<td><button (click)="searchPeople();">Search People</button></td>
+					
+				</tr>
+				<tr>
+				<td>Please enter memberID:</td>	
+				<td><input type="text"/><button (click)="addToGroup()">Add Member</button></td>	
+				</tr>
+
+			</table>
+			
+			
+			<button (click)="closeModal('custom-modal-1');">Close</button>
+		</div>
+	</div>
+	<div class="custom-modal-background"></div>
+</modal>

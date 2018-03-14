@@ -4,6 +4,7 @@ import { Http,Response } from "@angular/http";
 import { ReadJSON } from "../services/readJSON";
 import { User } from '../_models/index';
 import { UserService } from '../_services/index';
+import { NavbarService } from './../navbar/navbar.service';
 
 
 @Component({
@@ -28,12 +29,12 @@ export class SearchComponent implements OnInit {
   http:Http;
   currentUser: User;
 
-  constructor(private readJSON:ReadJSON) {
+  constructor(private readJSON:ReadJSON,public nav: NavbarService) {
        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    
+    this.nav.show();
    this.readJSON.getJSON("./../../assets/search.json").then(data => {
      //this.getTrips(data);
 

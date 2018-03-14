@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from './../navbar/navbar.service';
 
 @Component({
   selector: 'app-group',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nav: NavbarService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }
