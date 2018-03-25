@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,ViewChild,ElementRef,NgZone, OnInit } from '@angular/core';
 import { User } from '../_models/index';
 import { AlertService,UserService} from '../_services/index';
 import { RouterModule, Routes,Router } from '@angular/router';
@@ -7,11 +7,12 @@ import { MyTripsService } from './../services/mytrips.service';
 import { min } from 'rxjs/operators';
 import { GroupComponent } from '../group/group.component';
 import { NgForm } from '@angular/forms';
-import { BudgetComponent } from '../budget/budget.component';
+
 import { NavbarService } from './../navbar/navbar.service';
 import { ModalService } from './../_services/modal.service';
 import { ModalComponent } from './../_directives/modal.component';
-
+import {} from '@types/googlemaps';
+import { MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'app-plan',
@@ -22,25 +23,55 @@ import { ModalComponent } from './../_directives/modal.component';
 export class PlanComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
-  source=['USA','Australia','Africa','Japan','India','China'];
-  destin=['Australia','Africa','Japan','India','China'] ;
-  
+  @ViewChild('source')public sourceElement:ElementRef;
+  @ViewChild('destination')public destinationElement:ElementRef;
+
   model: TripDetails ;
-
   trips: TripDetails[];
-    
-  
+  autocomplete:any;
+  autocomplete2:any;
 
-  constructor(private userService: UserService,private myTripsService: MyTripsService,private modalService: ModalService,private router: Router,private alertService: AlertService,public nav: NavbarService) {
+  name1:any;
+
+  constructor(private mapsAPILoader:MapsAPILoader,private ngZone:NgZone,private userService: UserService,private myTripsService: MyTripsService,private modalService: ModalService,private router: Router,private alertService: AlertService,public nav: NavbarService) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
            
   }
 
   ngOnInit() {
     this.nav.show();
-    //this.modalService.remove('custom-modal-1');
     this.model = new TripDetails("","","","","","","lone");
-  
+    this.mapsAPILoader.load().then(
+      () => {
+       this.autocomplete = new google.maps.places.Autocomplete(this.sourceElement.nativeElement, { types:["(cities)"] });
+        this.autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+         let place: google.maps.places.PlaceResult = this.autocomplete.getPlace();
+         this.model.source=place.formatted_address;
+         if(place.geometry === undefined || place.geometry === null ){
+          return;
+         }
+        });
+        });
+      }
+         );
+
+         this.mapsAPILoader.load().then(
+          () => {
+           this.autocomplete2 = new google.maps.places.Autocomplete(this.destinationElement.nativeElement, { types:["(cities)"] });
+            this.autocomplete2.addListener("place_changed", () => {
+            this.ngZone.run(() => {
+             let place: google.maps.places.PlaceResult = this.autocomplete2.getPlace();
+             this.model.destination=place.formatted_address;
+             if(place.geometry === undefined || place.geometry === null ){
+              return;
+             }
+            });
+            });
+          }
+             );
+
+
   }
   
   reset()
@@ -49,17 +80,19 @@ export class PlanComponent implements OnInit {
   }
 
   onFormSubmit(form: NgForm,trip:TripDetails,id: string) {
-    
+    //this.model.source=
+    //console.log("here:"+this.name1)
     if(form.controls['travel'].value == "lone")
     { 
       this.myTripsService.addTrip(this.model);
-      this.router.navigate(['/mytrips']);
+    // this.router.navigate(['/suggestions']);
+     this.router.navigate(['/mytrips']);
     }
    else
    {  
       this.modalService.open(id);
      // this.myTripsService.addTrip(this.model);
-      //this.router.navigate(['/group']);
+      this.router.navigate(['/group']);
      
    }
   
@@ -89,8 +122,7 @@ addToGroup()
    
    trip.userid = String(this.currentUser.id);
    trip.id = String(Math.floor(Math.random()*(100-31+1)+31));
-  
-    this.myTripsService.addTrip(this.model);    
+   this.myTripsService.addTrip(this.model);    
   }
 
 

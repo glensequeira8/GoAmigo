@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
 <div>
-
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="form-area">
@@ -12,22 +11,20 @@
 					
 					<div id="datepicker" class="calendar"></div>
 
-					<div class="form-group">
 
-						<label>Source:</label>
-						<select name="source" id="source" class="form-control" [(ngModel)]="model.source" ng-required="true">
-							<option name="source" value="">--select state--</option>
-							<option *ngFor="let p of source">{{p}}</option>
-						</select>
-						
+					<div class="form-group">
 						<div>
-							<label> Destination:</label>
-							<select name="destination" id="destination" class="form-control" [(ngModel)]="model.destination" ng-required="true">
-							    <option name="destination" value="">--select state--</option>
-								<option *ngFor="let q of destin">{{q}}</option>
-							</select>
-								
+						<label>Source:</label>
+						<input type="text" name="source" placeholder="Search for Source" class="form-control" #source [(ngModel)]="model.source" >
 						</div>
+
+					       <div>
+								<div>
+								<label>Source:</label>
+								<input type="text" name="destination" placeholder="Search for Destination" class="form-control" #destination [(ngModel)]="model.destination" >
+								</div>
+							</div>	
+						
 
 					</div>
 
