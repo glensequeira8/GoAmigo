@@ -24,7 +24,17 @@ import { SearchComponent } from './search/search.component';
 import { HttpModule} from "@angular/http";
 import { MyTripsService } from "./services/mytrips.service";
 import { GroupComponent } from './group/group.component';
+
+import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarService } from './navbar/navbar.service';
+import * as $ from 'jquery';
+import { ModalComponent } from './_directives/modal.component';
+import { AgmCoreModule } from '@agm/core';
+import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { SuggestionsService } from './suggestions/suggestions.service';
+
 import {TabsModule} from "ng2-tabs";
+
 
 
 @NgModule({
@@ -34,7 +44,12 @@ import {TabsModule} from "ng2-tabs";
         HttpClientModule,
         routing,
         HttpModule,
+
+        AgmCoreModule.forRoot({apiKey:'AIzaSyDgQfG6Y-bbidUjlgoNX8SotR2ofd2H9kA',libraries:["places"]})
+
+
         TabsModule        
+
       ],
     declarations: [
         AppComponent,
@@ -48,6 +63,9 @@ import {TabsModule} from "ng2-tabs";
         SearchComponent,
         MytripsComponent,
         GroupComponent,
+        NavbarComponent,
+        ModalComponent,
+        SuggestionsComponent
         
 
     ],
@@ -58,6 +76,8 @@ import {TabsModule} from "ng2-tabs";
         ReadJSON,
         UserService,
         MyTripsService,
+        NavbarService,
+        SuggestionsService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,

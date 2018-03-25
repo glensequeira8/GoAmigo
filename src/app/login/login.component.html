@@ -1,4 +1,7 @@
-﻿<div class="col-md-6 col-md-offset-3 jumbotron">
+﻿<html>
+<div class="container" max-height="1000px" max-width="1000px" style="background-image:url('assets/Backp.jpg');" >
+
+<div class="col-md-6 col-md-offset-3 jumbotron">
     <h2>Login</h2>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
@@ -18,3 +21,5 @@
         </div>
     </form>
 </div>
+</div>
+</html>

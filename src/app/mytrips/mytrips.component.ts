@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavbarService } from './../navbar/navbar.service';
 
 import { TripDetails } from './../models/tripDetails';
 import { MyTripsService } from './../services/mytrips.service';
@@ -17,11 +18,12 @@ export class MytripsComponent implements OnInit {
   currentUser: User;
 
 
-  constructor(private myTripsService: MyTripsService) { 
+  constructor(private myTripsService: MyTripsService,public nav: NavbarService) { 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
+    this.nav.show();
     this.getMyTrips();
   }
 

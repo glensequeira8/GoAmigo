@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { NavbarService } from './../navbar/navbar.service';
+
 import {TabsModule} from "ng2-tabs";
+
 
 @Component({
   selector: 'app-group',
@@ -8,9 +12,10 @@ import {TabsModule} from "ng2-tabs";
 })
 export class GroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nav: NavbarService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }

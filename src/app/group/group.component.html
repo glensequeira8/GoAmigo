@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+
 <div class="row" align="left">
   <div class="col-md-12">
      <a class="navbar-brand">Group Name</a>
@@ -34,7 +36,23 @@
             </tab>
         </tabset>
 
-    <div class="container">
+
+        
+        <ul class="nav navbar-nav" routerLinkActive="active">
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/chat']">Chat</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="['/managebudget']">Manage Budget</a></li>
+
+          
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/groupphotos']">Group Photos</a>
+            </li> 
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/groupinfo']">Group Info</a></li>
+            <li class="nav item"><a class="nav-link" [routerLink]="['/suggestions']">Suggestions</a></li>
+              
+        </ul>
+    </nav>
+      <div class="container">
+
           <alert></alert>
           <router-outlet></router-outlet>
       </div>
