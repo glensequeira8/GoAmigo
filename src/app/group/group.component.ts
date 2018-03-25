@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { NavbarService } from './../navbar/navbar.service';
+
+import {TabsModule} from "ng2-tabs";
+
 
 @Component({
   selector: 'app-group',

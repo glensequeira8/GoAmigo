@@ -3,7 +3,39 @@
 <div class="row" align="left">
   <div class="col-md-12">
      <a class="navbar-brand">Group Name</a>
-    <nav class="navbar navbar-expand-lg"  *ngIf='!showNav'>
+     <tabset vertical ="true">
+            <tab>
+                <span *tabHeading>
+                    <b style="color: deepskyblue">Chat</b> 
+                </span>
+                Its all about me.
+            </tab>
+            <tab>
+                <span *tabHeading>
+                    <b style="color: deepskyblue">Manage Budget</b>
+                </span>
+                This is content of the contacts tab
+            </tab>
+            <tab>
+                <span *tabHeading>
+                    <b style="color: deepskyblue">Group media</b>
+                </span>
+                    Add content here
+            </tab>
+            <tab>
+                <span *tabHeading>
+                    <b style="color: deepskyblue">Group Info</b>
+                </span>
+                Place to add content
+            </tab>
+            <tab>
+                <span *tabHeading>
+                    <b style="color: deepskyblue">Suggestions</b>
+                </span>
+                Work to be done
+            </tab>
+        </tabset>
+
 
         
         <ul class="nav navbar-nav" routerLinkActive="active">
@@ -20,6 +52,7 @@
         </ul>
     </nav>
       <div class="container">
+
           <alert></alert>
           <router-outlet></router-outlet>
       </div>
