@@ -33,7 +33,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { SuggestionsService } from './suggestions/suggestions.service';
 
-import {TabsModule} from "ng2-tabs";
+//import {TabsModule} from "ng2-tabs";
 
 
 
@@ -48,7 +48,7 @@ import {TabsModule} from "ng2-tabs";
         AgmCoreModule.forRoot({apiKey:'AIzaSyDgQfG6Y-bbidUjlgoNX8SotR2ofd2H9kA',libraries:["places"]})
 
 
-        TabsModule        
+  //      TabsModule        
 
       ],
     declarations: [
