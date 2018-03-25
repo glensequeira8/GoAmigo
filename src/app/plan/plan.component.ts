@@ -92,7 +92,7 @@ export class PlanComponent implements OnInit {
    {  
       this.modalService.open(id);
      // this.myTripsService.addTrip(this.model);
-      this.router.navigate(['/group']);
+      //this.router.navigate(['/group']);
      
    }
   
